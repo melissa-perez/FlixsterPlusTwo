@@ -1,7 +1,8 @@
 package com.example.flixsterplustwo
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.example.flixsterplustwo.R.id
 
 private const val TAG = "MainActivity/"
 private const val SEARCH_API_KEY = BuildConfig.API_KEY
@@ -12,6 +13,11 @@ private const val TOP_RATED_MOVIES_URL =
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.id.layout.activity_main)
+        setContentView(
+            R.layout.activity_main
+        )
+        val supportFragmentManager = supportFragmentManager
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+        fragmentTransaction.replace(id.content, TopRatedMoviesFragment(), null).commit()
     }
 }
