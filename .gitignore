@@ -13,3 +13,7 @@
 .externalNativeBuild
 .cxx
 local.properties
+apikey.properties
+bin/
+gen/
+import-summary.txt
