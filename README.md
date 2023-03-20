@@ -24,7 +24,8 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-- [x] Removed EndlessRecyclerAdapterScroller to 
+- [x] Removed EndlessRecyclerAdapterScroller to save memory usage
+  - Therefore, only the first page of top rated movies is loaded
 
 ## Video Walkthrough
 
