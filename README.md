@@ -18,7 +18,8 @@ The following **required** functionality is completed:
 
 The following **optional** features are implemented:
 
-- [ ] **Add another API call and RecyclerView that lets the user interact with different data.**
+- [x] **Add another API call and RecyclerView that lets the user interact with different data.**
+  - Chosen Endpoint: `popular`
 - [x] **Add rounded corners to the images using the Glide transformations**
 - [x] **Implement a shared element transition when user clicks into the details of a movie**
 
@@ -39,6 +40,10 @@ GIF created with LICEcap
 ## Notes
 
 Describe any challenges encountered while building the app.
+
+- Changing the styling for the extra features.
+- Using fragment files and messing with the context(scrapped the fragment listener for this project)
+- Incorrect build settings.
 
 ## License
 
