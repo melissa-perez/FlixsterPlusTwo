@@ -1,6 +1,5 @@
 package com.example.flixsterplustwo
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -22,19 +21,12 @@ private const val SEARCH_API_KEY = BuildConfig.API_KEY
 private const val TOP_RATED_MOVIES_URL =
     "https://api.themoviedb.org/3/movie/top_rated"
 
-class TopRatedMoviesFragment : Fragment(), OnListFragmentInteractionListener {
+class TopRatedMoviesFragment : Fragment() {
     private lateinit var progressBar: ContentLoadingProgressBar
     private lateinit var topRatedRecyclerView: RecyclerView
     private var topRatedMovies: MutableList<TopRatedMovie> = mutableListOf()
     private var page = 1
     private lateinit var adapter: TopRatedMoviesRecyclerAdapter
-
-    override fun onItemClick(item: TopRatedMovie) {
-
-        val intent = Intent(context, TopRatedMovieDetailActivity::class.java)
-        intent.putExtra(MOVIE_EXTRA, item)
-        context?.startActivity(intent)
-    }
 
     fun createJson() = Json {
         isLenient = true
@@ -56,10 +48,11 @@ class TopRatedMoviesFragment : Fragment(), OnListFragmentInteractionListener {
         val context = view.context
         val linearLayoutManager = LinearLayoutManager(context)
         topRatedRecyclerView.layoutManager = linearLayoutManager
-        adapter = TopRatedMoviesRecyclerAdapter(topRatedMovies, this@TopRatedMoviesFragment)
+        adapter =
+            TopRatedMoviesRecyclerAdapter(context, topRatedMovies)
         topRatedRecyclerView.adapter = adapter
 
-        Log.d(TAG, "Called updateAdapter ")
+        Log.d(TAG, "Called updateAdapter")
         updateAdapter(progressBar)
 
         return view
