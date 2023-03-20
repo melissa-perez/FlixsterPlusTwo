@@ -11,6 +11,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(
             R.layout.activity_main
         )
+        supportActionBar?.hide()
+
         val topSupportFragmentManager = supportFragmentManager
         val topFragmentTransaction = topSupportFragmentManager.beginTransaction()
         topFragmentTransaction.replace(id.topMovies, TopRatedMoviesFragment(), null).commit()
