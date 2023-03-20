@@ -2,7 +2,7 @@
 
 Submitted by: **Melissa Perez**
 
-**Flixster+2** is a movie browsing app that allows users to browse ... [TODO]
+**Flixster+2** is a movie browsing app that allows users to browse the highest rated of the top rated movies of all-time.
 
 Time spent: **15** hours spent in total
 
