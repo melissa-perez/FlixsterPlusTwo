@@ -33,20 +33,20 @@
         android:textColor="@color/movie_white"
         android:textStyle="bold"
         android:typeface="serif"
-        app:layout_constraintBottom_toTopOf="@+id/movie_overview"
+        app:layout_constraintBottom_toTopOf="@+id/popularity"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/movie_image"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/movie_overview"
+        android:id="@+id/popularity"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="64dp"
         android:ellipsize="end"
         android:fontFamily="sans-serif"
-        android:text="@string/loremIpsumText"
+        android:text="@string/voteText"
         android:textAppearance="?attr/textAppearanceListItem"
         android:textColor="@color/movie_white"
         android:textSize="14sp"

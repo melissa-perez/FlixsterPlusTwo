@@ -28,7 +28,7 @@ class TopRatedMovieDetailActivity : AppCompatActivity() {
         movieOverviewTextView.text = movie.overview
 
         Glide.with(this)
-            .load(movie.mediaImageUrl)
+            .load(movie.backdropImageUrl)
             .into(backdropImageView)
     }
 }

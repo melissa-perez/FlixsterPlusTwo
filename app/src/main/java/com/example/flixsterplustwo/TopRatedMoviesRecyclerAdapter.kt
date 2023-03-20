@@ -28,12 +28,12 @@ class TopRatedMoviesRecyclerAdapter(
         View.OnClickListener {
         val mMoviePoster: ImageView = mView.findViewById<View>(R.id.movie_image) as ImageView
         val mMovieTitle: TextView = mView.findViewById<View>(R.id.movie_title) as TextView
-        val mMovieOverview: TextView = mView.findViewById<View>(R.id.movie_overview) as TextView
+        val mMoviePopularity: TextView = mView.findViewById<View>(R.id.popularity) as TextView
         init {
             mView.setOnClickListener(this)
         }
         override fun toString(): String {
-            return mMovieTitle.toString() + " '" + mMovieOverview.text + "'"
+            return mMovieTitle.toString()
         }
 
         override fun onClick(v: View?) {
@@ -48,12 +48,12 @@ class TopRatedMoviesRecyclerAdapter(
         val movie = topRatedMovies[position]
 
         holder.mMovieTitle.text = movie.title
-        holder.mMovieOverview.text = movie.overview
+        holder.mMoviePopularity.text = "Popularity: ${movie.popularity.toString()}"
 
         val radius = 30
 
         Glide.with(holder.mView)
-            .load(movie.mediaImageUrl)
+            .load(movie.posterImageUrl)
             .centerCrop()
             .transform(RoundedCorners(radius)).into(holder.mMoviePoster)
 
