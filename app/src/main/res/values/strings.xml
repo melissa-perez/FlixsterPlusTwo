@@ -7,4 +7,6 @@
     <string name="dateTestString">2023-12-12</string>
     <string name="popTestString">Popularity: 1000</string>
     <string name="voteTestString">10000</string>
+    <string name="highestRatedMenu">Highest Rated Movies of All-time</string>
+    <string name="popText">Most Popular Movies This Week</string>
 </resources>
