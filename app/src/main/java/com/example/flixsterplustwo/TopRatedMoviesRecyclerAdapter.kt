@@ -1,5 +1,6 @@
 package com.example.flixsterplustwo
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
@@ -7,9 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.app.ActivityOptionsCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+
 
 const val MOVIE_EXTRA = "MOVIE_EXTRA"
 private const val TAG = "TopRatedMovieRecyclerAdapter/"
@@ -28,7 +31,7 @@ class TopRatedMoviesRecyclerAdapter(
         View.OnClickListener {
         val mMoviePoster: ImageView = mView.findViewById<View>(R.id.movie_image) as ImageView
         val mMovieTitle: TextView = mView.findViewById<View>(R.id.movie_title) as TextView
-        val mMoviePopularity: TextView = mView.findViewById<View>(R.id.popularity) as TextView
+        val mMoviePopularity: TextView = mView.findViewById<View>(R.id.vote_average) as TextView
         init {
             mView.setOnClickListener(this)
         }
@@ -40,7 +43,11 @@ class TopRatedMoviesRecyclerAdapter(
             val movie = topRatedMovies[absoluteAdapterPosition]
             val intent = Intent(context, TopRatedMovieDetailActivity::class.java)
             intent.putExtra(MOVIE_EXTRA, movie)
-            context.startActivity(intent)
+            val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                v?.context as Activity,
+                (mMoviePoster as View?)!!, "posterRoll"
+            )
+            context.startActivity(intent,  options.toBundle())
         }
     }
 
@@ -48,7 +55,7 @@ class TopRatedMoviesRecyclerAdapter(
         val movie = topRatedMovies[position]
 
         holder.mMovieTitle.text = movie.title
-        holder.mMoviePopularity.text = "Popularity: ${movie.popularity.toString()}"
+        holder.mMoviePopularity.text = "Rating: ${movie.vote_average.toString()}"
 
         val radius = 30
 

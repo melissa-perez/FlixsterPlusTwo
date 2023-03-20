@@ -33,13 +33,13 @@
         android:textColor="@color/movie_white"
         android:textStyle="bold"
         android:typeface="serif"
-        app:layout_constraintBottom_toTopOf="@+id/popularity"
+        app:layout_constraintBottom_toTopOf="@+id/vote_average"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/movie_image"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/popularity"
+        android:id="@+id/vote_average"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_marginStart="16dp"

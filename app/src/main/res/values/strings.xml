@@ -4,4 +4,7 @@
     <string name="testMovieTitleText">Some movie title</string>
     <string name="loremIpsumText">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas maecenas pharetra convallis posuere morbi leo urna molestie. Et sollicitudin ac orci phasellus egestas tellus. Viverra adipiscing at in tellus integer feugiat. Auctor eu augue ut lectus arcu bibendum at varius. Feugiat pretium nibh ipsum consequat nisl vel pretium lectus quam. Mattis enim ut tellus elementum sagittis. Cursus mattis molestie a iaculis at erat. At auctor urna nunc id. Iaculis urna id volutpat lacus laoreet non. Sit amet nulla facilisi morbi tempus iaculis urna id. Scelerisque felis imperdiet proin fermentum leo vel. Amet tellus cras adipiscing enim eu turpis.</string>
     <string name="voteText">10.0</string>
+    <string name="dateTestString">2023-12-12</string>
+    <string name="popTestString">Popularity: 1000</string>
+    <string name="voteTestString">10000</string>
 </resources>

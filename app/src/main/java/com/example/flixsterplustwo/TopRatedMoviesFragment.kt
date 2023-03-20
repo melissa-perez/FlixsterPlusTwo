@@ -14,7 +14,6 @@ import com.codepath.asynchttpclient.RequestParams
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
 import kotlinx.serialization.json.Json
 import okhttp3.Headers
-import org.json.JSONArray
 
 private const val TAG = "TopRatedMoviesFragment/"
 private const val SEARCH_API_KEY = BuildConfig.API_KEY
@@ -86,7 +85,6 @@ class TopRatedMoviesFragment : Fragment() {
             override fun onSuccess(statusCode: Int, headers: Headers?, json: JSON?) {
                 progressBar.hide()
                 Log.d(TAG, "response successful")
-                val movieJsonArray: JSONArray? = json?.jsonObject?.getJSONArray("results")
 
                 val parsedJson = createJson().decodeFromString(
                     BaseResponse.serializer(),
