@@ -7,10 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
 
-private const val TAG = "TopRatedMovieDetailActivity/"
-
-
-class TopRatedMovieDetailActivity : AppCompatActivity() {
+class PopularMovieDetailActivity : AppCompatActivity() {
     private lateinit var backdropImageView: ImageView
     private lateinit var movieTitleTextView: TextView
     private lateinit var movieOverviewTextView: TextView
@@ -21,17 +18,17 @@ class TopRatedMovieDetailActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.top_rated_movie_activity_detail)
+        setContentView(R.layout.popular_movie_activity_detail)
 
-        backdropImageView = findViewById(R.id.backdropImage)
-        movieTitleTextView = findViewById(R.id.movieTitle)
-        movieOverviewTextView = findViewById(R.id.movieOverview)
-        moviePopularity = findViewById(R.id.popularity)
-        movieReleaseDate = findViewById(R.id.releaseDate)
-        movieVoteAverage = findViewById(R.id.voteAverage)
-        movieVoteCount= findViewById(R.id.voteCount)
+        backdropImageView = findViewById(R.id.popBackdropImage)
+        movieTitleTextView = findViewById(R.id.popMovieTitle)
+        movieOverviewTextView = findViewById(R.id.popMovieOverview)
+        moviePopularity = findViewById(R.id.popPopularity)
+        movieReleaseDate = findViewById(R.id.popReleaseDate)
+        movieVoteAverage = findViewById(R.id.popVoteAverage)
+        movieVoteCount= findViewById(R.id.popVoteCount)
 
-        val movie = intent.getSerializableExtra(MOVIE_EXTRA) as TopRatedMovie
+        val movie = intent.getSerializableExtra(POP_MOVIE_EXTRA) as PopularMovie
 
         movieTitleTextView.text = movie.title
         movieOverviewTextView.text = movie.overview

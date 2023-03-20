@@ -6,16 +6,16 @@ import kotlinx.serialization.Serializable
 
 @Keep
 @Serializable
-data class BaseResponse(
+data class Response(
     @SerialName("page")
     val page: Int,
     @SerialName("results")
-    val results: List<TopRatedMovie>?,
+    val results: List<PopularMovie>?,
 )
 
 @Keep
 @Serializable
-data class TopRatedMovie(
+data class PopularMovie(
     @SerialName("title")
     val title: String,
     @SerialName("overview")

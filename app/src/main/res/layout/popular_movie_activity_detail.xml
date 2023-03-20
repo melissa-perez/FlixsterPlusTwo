@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/popDetailContent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PopularMovieDetailActivity"
+    android:background="@color/letterbox_gray">
+
+    <ImageView
+        android:id="@+id/popBackdropImage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="25dp"
+        android:contentDescription="@string/moviePosterText"
+        android:transitionName="popPosterRoll"
+        app:layout_constraintBottom_toTopOf="@+id/popMovieTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/popMovieTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:shadowColor="@color/light_teal"
+        android:shadowDx="3"
+        android:shadowRadius="2"
+        android:text="@string/testMovieTitleText"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
+        android:textColor="@color/movie_white"
+        android:textStyle="bold"
+        android:transitionName="title"
+        android:typeface="serif"
+        app:layout_constraintBottom_toTopOf="@+id/popMovieOverview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/popBackdropImage" />
+
+    <TextView
+        android:id="@+id/popMovieOverview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="sans-serif"
+        android:padding="10sp"
+        android:text="@string/loremIpsumText"
+        android:textColor="@color/movie_white"
+        app:layout_constraintBottom_toTopOf="@+id/popReleaseDate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/popMovieTitle" />
+
+    <TextView
+        android:id="@+id/popReleaseDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="sans-serif"
+        android:text="@string/dateTestString"
+        android:textAlignment="center"
+        android:textColor="@color/movie_white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/popVoteAverage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/popMovieOverview" />
+
+    <TextView
+        android:id="@+id/popPopularity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="sans-serif"
+        android:text="@string/popTestString"
+        android:textAlignment="center"
+        android:textColor="@color/movie_white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/popVoteCount"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/popVoteAverage" />
+
+    <TextView
+        android:id="@+id/popVoteCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="163dp"
+        android:fontFamily="sans-serif"
+        android:text="@string/voteTestString"
+        android:textAlignment="center"
+        android:textColor="@color/movie_white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/popPopularity" />
+
+    <TextView
+        android:id="@+id/popVoteAverage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="sans-serif"
+        android:text="@string/voteText"
+        android:textAlignment="center"
+        android:textColor="@color/movie_white"
+        android:textStyle="bold"
+        android:transitionName="vote"
+        app:layout_constraintBottom_toTopOf="@+id/popPopularity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/popReleaseDate" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,17 +15,17 @@ import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
 import kotlinx.serialization.json.Json
 import okhttp3.Headers
 
-private const val TAG = "TopRatedMoviesFragment/"
+private const val TAG = "PopularMoviesFragment/"
 private const val SEARCH_API_KEY = BuildConfig.API_KEY
-private const val TOP_RATED_MOVIES_URL =
-    "https://api.themoviedb.org/3/movie/top_rated"
+private const val POP_RATED_MOVIES_URL =
+    "https://api.themoviedb.org/3/movie/popular"
 
-class TopRatedMoviesFragment : Fragment() {
+class PopularMoviesFragment : Fragment() {
     private lateinit var progressBar: ContentLoadingProgressBar
-    private lateinit var topRatedRecyclerView: RecyclerView
-    private var topRatedMovies: MutableList<TopRatedMovie> = mutableListOf()
+    private lateinit var popularRecyclerView: RecyclerView
+    private var popularMovies: MutableList<PopularMovie> = mutableListOf()
     private var page = 1
-    private lateinit var adapter: TopRatedMoviesRecyclerAdapter
+    private lateinit var adapter: PopularMoviesRecyclerAdapter
 
     fun createJson() = Json {
         isLenient = true
@@ -38,18 +38,19 @@ class TopRatedMoviesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(
-            R.layout.fragment_top_rated_movies_list, container,
+            R.layout.fragment_popular_movies_list, container,
             false
         )
-        progressBar = view.findViewById<View>(R.id.progress) as ContentLoadingProgressBar
-        topRatedRecyclerView = view.findViewById<View>(R.id.topRatedList) as RecyclerView
+        progressBar = view.findViewById<View>(R.id.popProgress) as ContentLoadingProgressBar
+        popularRecyclerView = view.findViewById<View>(R.id.popList) as RecyclerView
 
         val context = view.context
-        val linearLayoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        topRatedRecyclerView.layoutManager = linearLayoutManager
+        val linearLayoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        popularRecyclerView.layoutManager = linearLayoutManager
         adapter =
-            TopRatedMoviesRecyclerAdapter(context, topRatedMovies)
-        topRatedRecyclerView.adapter = adapter
+            PopularMoviesRecyclerAdapter(context, popularMovies)
+        popularRecyclerView.adapter = adapter
 
         Log.d(TAG, "Called updateAdapter")
         updateAdapter(progressBar)
@@ -66,7 +67,7 @@ class TopRatedMoviesFragment : Fragment() {
         params["api_key"] = SEARCH_API_KEY
         params["page"] = page.toString()
 
-        client["$TOP_RATED_MOVIES_URL?", params, object :
+        client["$POP_RATED_MOVIES_URL?", params, object :
             JsonHttpResponseHandler() {
             override fun onFailure(
                 statusCode: Int,
@@ -87,12 +88,12 @@ class TopRatedMoviesFragment : Fragment() {
                 Log.d(TAG, "response successful")
 
                 val parsedJson = createJson().decodeFromString(
-                    BaseResponse.serializer(),
+                    Response.serializer(),
                     json?.jsonObject.toString()
                 )
 
-                parsedJson.results?.let { list ->
-                    topRatedMovies.addAll(list)
+                parsedJson.results?.let { otherlist ->
+                    popularMovies.addAll(otherlist)
 
                     adapter.notifyDataSetChanged()
                 }

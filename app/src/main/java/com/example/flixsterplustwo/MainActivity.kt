@@ -11,8 +11,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(
             R.layout.activity_main
         )
-        val supportFragmentManager = supportFragmentManager
-        val fragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.replace(id.content, TopRatedMoviesFragment(), null).commit()
+        val topSupportFragmentManager = supportFragmentManager
+        val topFragmentTransaction = topSupportFragmentManager.beginTransaction()
+        topFragmentTransaction.replace(id.topMovies, TopRatedMoviesFragment(), null).commit()
+
+        val popSupportFragmentManager = supportFragmentManager
+        val popFragmentTransaction = popSupportFragmentManager.beginTransaction()
+        popFragmentTransaction.replace(id.popularMovies, PopularMoviesFragment(), null).commit()
     }
 }
