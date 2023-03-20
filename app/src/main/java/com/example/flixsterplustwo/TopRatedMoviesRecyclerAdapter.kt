@@ -1,14 +1,16 @@
 package com.example.flixsterplustwo
 
-import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
-import android.content.Context
-import android.content.res.Configuration
 import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+
+const val MOVIE_EXTRA = "MOVIE_EXTRA"
+private const val TAG = "TopRatedMovieRecyclerAdapter/"
 
 class TopRatedMoviesRecyclerAdapter(
     private val topRatedMovies: List<TopRatedMovie>,
@@ -29,25 +31,26 @@ class TopRatedMoviesRecyclerAdapter(
         override fun toString(): String {
             return mMovieTitle.toString() + " '" + mMovieOverview.text + "'"
         }
+
     }
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        val context: Context = holder.itemView.context
         val movie = topRatedMovies[position]
-        val orientation = context.resources.configuration.orientation
 
-        holder.mItem = movie
         holder.mMovieTitle.text = movie.title
         holder.mMovieOverview.text = movie.overview
 
-        if (orientation == Configuration.ORIENTATION_PORTRAIT) {
-            Glide.with(holder.mView)
-                .load("https://image.tmdb.org/t/p/w342/" + movie.poster).into(holder.mMoviePoster)
-        }
+        val radius = 30
+
+        Glide.with(holder.mView)
+            .load(movie.mediaImageUrl)
+            .centerCrop()
+            .transform(RoundedCorners(radius)).into(holder.mMoviePoster)
+
 
         holder.mView.setOnClickListener {
             holder.mItem?.let { movie ->
-                mListener?.onItemClick(movie)
+                mListener.onItemClick(movie)
             }
         }
     }
